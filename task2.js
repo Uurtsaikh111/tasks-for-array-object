@@ -50,13 +50,30 @@ let sportsmen = [
     scores: [10, 20, 30, 40],
   },
 ];
+function findAvg(a, b, c, d) {
+  return (a + b + c + d) / 4;
+}
+for (let i = 1; i < sportsmen.length; i = i + 1) {
+  console.log(
+    findAvg(
+      sportsmen[i].scores[0],
+      sportsmen[i].scores[1],
+      sportsmen[i].scores[2],
+      sportsmen[i].scores[3]
+    )
+  );
+}
 
-let a = sportsmen[0].age;
-let b = sportsmen[1].age;
-
-if (a < b) {
-  console.log(a);
-} else console.log(b);
+function findNum() {
+  let min = sportsmen[0].age;
+  for (let i = 1; i < sportsmen.length; i = i + 1) {
+    if (min > sportsmen[i].age) {
+      min = sportsmen[i].age;
+    }
+  }
+  console.log(min);
+}
+findNum();
 
 let avgScore1 =
   (sportsmen[0].scores[0] +

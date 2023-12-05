@@ -71,14 +71,31 @@ let products = [
   },
 ];
 
-for (let i = 0; i < products.length; i = i + 1) {
-  products[i].price = products[i].price * 0.9;
-  console.log(products[i]);
+function findExp() {
+  let max = products[0].price;
+  for (let i = 1; i < products.length; i = i + 1) {
+    if (max < products[i].price) {
+      max = products[i].price;
+    }
+  }
+  console.log(max);
 }
+findExp();
 
-for (let i = 0; i < products.length; i = i + 1) {
-  if (products[i].category == "electron") {
-    let selectedBrand = products[i];
-    console.log(selectedBrand);
+function findByCategory(cate) {
+  for (let i = 0; i < products.length; i = i + 1) {
+    if (products[i].category == cate) {
+      //console.log(i,"=>",products[i]);
+      console.log(products[i]);
+    }
   }
 }
+findByCategory("electron");
+
+function setSale(saleAmout) {
+  for (let i = 0; i < products.length; i = i + 1) {
+    products[i].price = products[i].price * (1 - saleAmout / 100);
+  }
+}
+setSale(10);
+console.log(products);
